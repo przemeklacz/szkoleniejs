@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+
+    /*
+    <!--Konstruktor w ECMA 5 -->*/
+    function Animal(name) {
+        this.name = name;
+
+    }
+
+
+//    Prototyp
+    Animal.prototype.say = function () {
+        console.log(this.name);
+    };
+
+    function Man(name, lang) {
+//        super(); ecma6
+        Animal.call(this, name);  //wywołanie Animal w kontekście Man
+        this.lang = lang;
+
+    }
+
+    Man.prototype = Object.create(Animal.prototype);
+
+    var animal = new Animal("Szarik");
+    animal.say();
+
+    var man = new Man("Robert", "pl");
+    man.say();
+
+</script>
+</body>
+
+</html>

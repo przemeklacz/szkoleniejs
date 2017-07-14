@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+
+    //call method
+
+    var obj = {
+        name: 'joe',
+        say: function (param, separator) {
+            console.log(param, separator, this.name);
+        }
+    };
+
+    var obj2 = {
+        name: 'mike'
+    };
+
+    obj.say("I'm ", '...');
+    obj.say.call(obj2, "I'm ", '...');  //paramettry funkcji przekazujemy jako 2, 3... Pierwszym jest kontekst
+
+    // apply method
+
+    var person = {
+        name: 'joe',
+        say: function (param, separator) {
+            console.log(param, separator, this.name);
+        }
+    };
+
+    var person2 = {
+        name: 'mike'
+    };
+
+    person.say("I'm ", '...');
+    person.say.apply(person2, ["I'm ", '...']); //przy apply dajemy tablicę parametrów.
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn">Go!</button>
+    <script>
+        document
+            .querySelector('.btn')
+            .addEventListener('click', function(evt) {
+
+                // Zastąpienie triggera jQuery
+                document.dispatchEvent(new CustomEvent (
+                    "on-click",
+                    {detail: "hi"}
+                ));
+            });
+        document.addEventListener('on-click', myOnClick);
+
+        function myOnClick() {
+            alert(evt.detail);
+        }
+    </script>
+</body>
+
+</html>

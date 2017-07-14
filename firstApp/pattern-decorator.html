@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+
+    function sum(a, b, c) {
+        return a + b + c;
+    }
+
+    function doubleResult(fn) {
+        var index = 0;
+        function wrapper() {
+            index++;
+            return 2 * fn.apply(this, arguments);  // apply przekazuje argumenty
+        }
+
+        wrapper.count = function () {
+            return index;
+        }
+        return wrapper;
+    }
+
+    var doubleSum = doubleResult(sum);
+
+    console.log(doubleSum(2, 2, 2));
+    console.log(doubleSum(3, 3, 3));
+    console.log(doubleSum.count());
+
+</script>
+</body>
+
+</html>

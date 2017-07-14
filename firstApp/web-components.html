@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <template id="my-component-tpl">
+        <style>
+            :host {
+                border: 2px solid red;
+                display: block;
+            }
+        </style>
+        <h1 id="name"></h1>
+        <h2 id="age"></h2>
+    </template>
+
+    <my-component name="Joe Doe" age="20"> </my-component>
+    <my-component name="Mike Tyson" age="2120"> </my-component>
+
+    <script>
+        (function () {
+            let Proto = Object.create(HTMLElement.prototype);
+            Proto.createdCallback = function (argument) {
+                let root = this.createShadowRoot();
+                let tpl = document.querySelector('#my-component-tpl');
+                let clone = document.importNode(tpl.content, true);
+
+                let tagName = clone.querySelector('#name');
+                let attrName = this.getAttribute('name');
+                tagName.innerHTML = attrName;
+
+                let tagAge = clone.querySelector('#age');
+                let attrAge = this.getAttribute('age');
+                tagAge.innerHTML = attrAge;
+
+                root.appendChild(clone);
+            };
+
+            document.registerElement('my-component', {
+                prototype: Proto
+            })
+
+            
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hhhh</h1>
+    <script>
+        function getData(callback) {
+            setTimeout(function() {
+                let data = [0, 1, 2];
+                return data;
+            }, 1000);
+        }
+
+        function renderUI(data) {
+            document.body.innerHTML = data;
+        }
+
+        function log(data) {
+            console.log(data);
+        }
+
+        // controller
+        getData(renderUI);
+        getData(log);
+    </script>
+</body>
+
+</html>

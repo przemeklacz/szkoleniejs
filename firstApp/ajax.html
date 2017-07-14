@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="ajax-service.js"></script>
+</head>
+
+<body>
+    <h2>Ajax</h2>
+    <div class="container"></div>
+    <script id="tpl" type="text/x-handlebars-template">
+        {{#each data}}
+        <div>
+            <h2>{{title}}</h2>
+            <h3>{{description}}</h3>
+            <img src="{{img}}" width='50'></div>
+        {{/each}}
+    </script>
+
+<script src="src/controllers/controller.js"></script>
+</body>
+
+</html>

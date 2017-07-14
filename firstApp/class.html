@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn">Go!</button>
+    <script>
+        class Animal {
+            constructor(name, weight) {
+                this.name = name;
+            }
+        }
+        class Man extends Animal {
+          // odebranie parametrów
+            constructor(name, weight, lang) {
+              //  super wywołuje konstruktor Animala
+                super(name, weight);
+                this.lang = lang;
+            }
+        }
+        let animal = new Animal("Filemon", 6);
+        let man = new Man("Joe", 77, 'pl');
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn">Go!</button>
+    <script>
+
+    // Stworzony namespace dla App
+    //  docelowo tworzone namespace'y dla każdej
+    let App = {};
+
+        (function(app)  {
+          app.user = {};
+          app.user.name = "Robert";
+
+        })(App);
+// Wywołanie przez obiekt App
+        console.log(App.user.name);
+    </script>
+</body>
+
+</html>
